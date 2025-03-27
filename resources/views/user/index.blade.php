@@ -11,7 +11,9 @@
                 {{-- Notification --}}
                 <div class="px-6 text-xl text-gray-900 dark:text-gray-100">
                     <div class="flex items-center justify-between">
-                        <div></div>
+                        <div>
+                            <x-create-button href="{{ route('user.create') }}"/>
+                        </div>
                         <div>
                             @if (session('success'))
                                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"
@@ -33,9 +35,6 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
-                                    No.
-                                </th>
-                                <th scope="col" class="px-6 py-3">
                                     Name
                                 </th>
                                 <th scope="col" class="hidden px-6 py-3 md:block">
@@ -52,12 +51,7 @@
                         <tbody>
                             @forelse ($users as $user)
                                 <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
-                                    <td scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <p>
-                                            {{ $users->firstItem() + $loop->index }}
-                                        </p>
-                                    </td>
+
                                     <td
                                         class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
                                         <p>{{ $user->name }}</p>

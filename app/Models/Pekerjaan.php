@@ -9,9 +9,11 @@ class Pekerjaan extends Model
 {
     use HasFactory;
 
+    protected $table = 'pekerjaan';
+
     protected $fillable = [
         'pekerjaan'
-    ];  
+    ];
 
     public function users()
     {

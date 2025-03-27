@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Jabatan;
+use App\Models\Pekerjaan;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -16,7 +18,9 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('user.create'); //untuk halaman nambah data karyawan
+        $jabatans = Jabatan::all();
+        $pekerjaans = Pekerjaan::all();
+        return view('user.create', compact('jabatans', 'pekerjaans')); //untuk halaman nambah data karyawan
     }
 
     public function store(Request $request) //untuk post data yang diisi di formulir pake varianle $request
